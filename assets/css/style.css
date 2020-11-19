@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: #ffecb3;
+  }
+h1 {
+    font-weight: bolder;
+}
+
+#btnContainer {
+    padding: 10px 10px;
+}
