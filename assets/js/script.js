@@ -14,8 +14,7 @@ $("#searchBtn").click(function() {
     getGiphyData(searchResult.input)
     .then(giphyData => {
         searchResult.result = giphyData
-        console.log(giphyData)
-        storeMoodResult(searchResult);
+        storeMoodResult(searchResult.input);
         renderGiphyData(searchResult.result);
     })
     
@@ -44,7 +43,7 @@ function renderGiphyData(data) {
 
 }
 
-// function to get the data 
+// function to get the GIPHY data 
 
 function getGiphyData(inputMood){
     return new Promise((resolve, reject) =>{
