@@ -3,8 +3,6 @@
 // Define Variables 
 
 var moodInput = $("#inputMood").val()
-
-
 let results = []
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function() {
@@ -27,6 +25,8 @@ $("#searchBtn").click(function() {
 
 }
 );
+
+// function to render the data
 function renderGiphyData(data) {
     let giphyContainer = $("#giphyCont")
       giphyContainer.html(
@@ -43,6 +43,9 @@ function renderGiphyData(data) {
       // giphyContainer.appendChild(gifImg);
 
 }
+
+// function to get the data 
+
 function getGiphyData(inputMood){
     return new Promise((resolve, reject) =>{
         fetch("https://api.giphy.com/v1/gifs/search?q=" + inputMood + "&api_key=m1Xfg0VXns59b9T57eo1ghhh0KJYrA1c&limit=1")
@@ -56,28 +59,8 @@ function getGiphyData(inputMood){
      
     }
 
-
-function storeMoodResult(result) {
-    results.push(result)
+// function to store the results 
+function storeMoodResult(input) {
+    results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
 }
-// Take the input from user and run a search with Quotes.REST API to return quote with limited integers and SFW rating
-
-// Take input from user and run a search in GIPHY API to return GIF with SFW rating
-
-// Log the 4 previous fortunes below - use logic to make it so when you click the old fortune it takes the string from local storage and 
-// runs the function to retrieve the quote and gif for it. Might not be the same one each time, but that is ok 
-// Actually I do not even know if we need this! 
-
-// function to animate the cookie open when button is clicked 
-//  $('#searchBtn').onClick(function(){
-//  $('#cookieLeft').addClass('animate_animated', 'animate_rotateOutUpLeft');
-//  $('#cookieRight').addClass('animate_animated', 'animate_rotateOutUpRight');
-//  });
-
-// function to display fortune and gif together after cookie is opened and hide everything else, insert new button to get a new cookie
-// and call the function to go back to the start page 
-
-
-
-
