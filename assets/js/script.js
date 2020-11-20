@@ -1,34 +1,31 @@
 
 
 // Define Variables 
+
 var moodInput = $("#inputMood").val()
 
-// Create the opening page which has the cookie (together, lol) and the input
 
+let results = []
 // Get the input from the user and save it to local storage 
-$("#searchBtn").click(function(){
-    var moodInput = $("#inputMood").val()
-    console.log(moodInput)
-    localStorage.setItem("mood", moodInput)
-    fetch("https://api.giphy.com/v1/gifs/search?q=" + moodInput + "&api_key=m1Xfg0VXns59b9T57eo1ghhh0KJYrA1c&limit=1")
-    
-.then(function(response) {
-  return response.json();
-})
-.then(function(response) {
-  console.log(response.data[0]);
- 
-  let giphyContainer = document.querySelector("#giphyCont")
-  
-  giphyContainer.innerHTML = ""
-  var gifImg = document.createElement('img');
-  gifImg.setAttribute('src', response.data[0].images.fixed_height.url);
- 
-  giphyContainer.appendChild(gifImg);
-})
-}
+$("#searchBtn").click(function () {
+    let searchResult = {}
+    searchResult.input
+    searchResult.result
+    searchResult.input = $("#inputMood").val()
 
+    // fetch results from giphy based on term 
+    // fetch results from quotes based on terms
+    // store results to storage 
+    storeMoodResult(searchResult);
+
+
+}
 );
+
+function storeMoodResult(result) {
+    results.push(result)
+    localStorage.setItem("mood", JSON.stringify(results))
+}
 // Take the input from user and run a search with Quotes.REST API to return quote with limited integers and SFW rating
 
 // Take input from user and run a search in GIPHY API to return GIF with SFW rating
