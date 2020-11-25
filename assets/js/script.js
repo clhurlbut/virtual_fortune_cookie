@@ -21,40 +21,40 @@ $("#searchBtn").click(function () {
     // fetch results from giphy based on term 
     getGiphyData(searchResult.input)
 
-    .then(giphyData => {
-        searchResult.result = giphyData
-        storeMoodResult(searchResult.input);
-        renderGiphyData(searchResult.result);
-    })
+        .then(giphyData => {
+            searchResult.result = giphyData
+            storeMoodResult(searchResult.input);
+            renderGiphyData(searchResult.result);
+        })
 
-    
-//    //fetch results from quotes based on terms
-//     getquoteData(searchResult.input)
-//     .then(quoteData => {
-//         searchResult.result = quoteData
-//         storeMoodResult(searchResult.input);
-//         renderQuoteData(searchResult.result);
-//     }) 
+
+    //    //fetch results from quotes based on terms
+    //     getquoteData(searchResult.input)
+    //     .then(quoteData => {
+    //         searchResult.result = quoteData
+    //         storeMoodResult(searchResult.input);
+    //         renderQuoteData(searchResult.result);
+    //     }) 
 }
 );
 
 //     const handleevent = (response) => {
 //         console.log(response) //my quote
 //     }
-    
+
 //     fetch("https://quotes.rest/qod/categories?language=en&detailed=true")
 //     .then (response => response.json())
 //     .then(data => handleevent(data.contents.quotes[7]));
 // }
 // );
 
-        // then(giphyData => {
-        //     searchResult.result = giphyData
-        //     storeMoodResult(searchResult.input);
-        //     renderGiphyData(searchResult.result);
-        // })
+// then(giphyData => {
+//     searchResult.result = giphyData
+//     storeMoodResult(searchResult.input);
+//     renderGiphyData(searchResult.result);
+// })
 
-    // fetch results from quotes based on terms
+// fetch results from quotes based on terms
 
 
 
@@ -69,10 +69,7 @@ $("#searchBtn").click(function () {
 // jQuery for newCookieButton
 
 $("#newCookieBtn").click(function () {
-    $("#fortuneBox").hide();
-    $("#newBtnContainer").hide();
-    $("#cookieBox").show();
-    $("#searchContainer").show();
+    location.reload();
 
 });
 // function to render the data
@@ -130,13 +127,13 @@ function renderQuoteData(data) {
 }
 
 fetch("https://type.fit/api/quotes")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    renderQuoteData(data)
-    // console.log(data)
-  })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        renderQuoteData(data)
+        // console.log(data)
+    })
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
