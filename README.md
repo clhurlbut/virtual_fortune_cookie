@@ -24,9 +24,9 @@ A web app combining free public APIs to give the user a virtual fortune cookie e
 
 ## Website
 
-GitPages Deployed URL : https://clhurlbut.github.io/virtual-fortune-cookie/
+GitPages Deployed URL : https://clhurlbut.github.io/virtual_fortune_cookie/
 
-Github Repository URL : https://github.com/clhurlbut/virtual-fortune-cookie
+Github Repository URL : https://github.com/clhurlbut/virtual_fortune_cookie
 
 
 ## Contribution
