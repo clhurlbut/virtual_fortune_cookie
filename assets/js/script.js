@@ -11,6 +11,7 @@ let results = []
 $("#searchBtn").click(function () {
     // show and hide boxs
     $("#fortuneBox").show();
+    $("#newBtnContainer").show();
     $("#cookieBox").hide();
     $("#searchContainer").hide();
     let searchResult = {}
@@ -32,6 +33,15 @@ $("#searchBtn").click(function () {
 }
 );
 
+// jQuery for newCookieButton
+
+$("#newCookieBtn").click(function () {
+    $("#fortuneBox").hide();
+    $("#newBtnContainer").hide();
+    $("#cookieBox").show();
+    $("#searchContainer").show();
+
+});
 // function to render the data
 function renderGiphyData(data) {
     let giphyContainer = $("#giphyCont")
@@ -70,3 +80,4 @@ function storeMoodResult(input) {
     results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
 }
+
