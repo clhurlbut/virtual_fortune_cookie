@@ -3,8 +3,16 @@
 
 var moodInput = $("#inputMood").val()
 let results = []
+
+
+
+
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function () {
+    // show and hide boxs
+    $("#fortuneBox").show();
+    $("#cookieBox").hide();
+    $("#searchContainer").hide();
     let searchResult = {}
     searchResult.input
     searchResult.result
