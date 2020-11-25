@@ -19,13 +19,13 @@ $("#searchBtn").click(function () {
     })
 
     
-    //fetch results from quotes based on terms
-    getquoteData(searchResult.input)
-    .then(quoteData => {
-        searchResult.result = quoteData
-        storeMoodResult(searchResult.input);
-        renderQuoteData(searchResult.result);
-    })
+//    //fetch results from quotes based on terms
+//     getquoteData(searchResult.input)
+//     .then(quoteData => {
+//         searchResult.result = quoteData
+//         storeMoodResult(searchResult.input);
+//         renderQuoteData(searchResult.result);
+//     }) 
 }
 );
 
@@ -39,21 +39,21 @@ $("#searchBtn").click(function () {
 // }
 // );
 
-        .then(giphyData => {
-            searchResult.result = giphyData
-            storeMoodResult(searchResult.input);
-            renderGiphyData(searchResult.result);
-        })
+        // then(giphyData => {
+        //     searchResult.result = giphyData
+        //     storeMoodResult(searchResult.input);
+        //     renderGiphyData(searchResult.result);
+        // })
 
     // fetch results from quotes based on terms
 
 
 
 
-function renderQuoteData(data) {
-    let quoteContainer = $("#quoteCont")
-    quoteContainer.html(`text`);
-}
+// function renderQuoteData(data) {
+//     let quoteContainer = $("#quoteCont")
+//     quoteContainer.html(`text`);
+// }
 
 
 
@@ -92,17 +92,33 @@ function getGiphyData(inputMood) {
 
 }
 
-function getquoteData(inputMood){
-     return new Promise((resolve, reject) =>{
-         fetch("http://www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
-         .then(function(response) {
-             return response.json();
-         })
-         .then (result => resolve(result.data))
-         .catch(err => reject(err))
+// function getquoteData(inputMood){
+//      return new Promise((resolve, reject) =>{
+//          fetch("www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
+//          .then(function(response) {
+//              return response.json();
+//          })
+//          .then (result => resolve(result.data))
+//          .catch(err => reject(err))
 
-    });
+//     });
+// }
+function renderQuoteData(data) {
+    var randomQuote = data[Math.floor(Math.random() * data.length)]
+    let quoteContainer = $("#quoteCont")
+    quoteContainer.html(randomQuote.text);
+    // renderQuoteData(Math.floor(Math.random() * 10))
+    console.log(randomQuote)
 }
+
+fetch("https://type.fit/api/quotes")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    renderQuoteData(data)
+    // console.log(data)
+  })
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
