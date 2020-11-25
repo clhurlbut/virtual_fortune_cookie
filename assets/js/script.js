@@ -3,8 +3,17 @@
 
 var moodInput = $("#inputMood").val()
 let results = []
+
+
+
+
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function () {
+    // show and hide boxs
+    $("#fortuneBox").show();
+    $("#newBtnContainer").show();
+    $("#cookieBox").hide();
+    $("#searchContainer").hide();
     let searchResult = {}
     searchResult.input
     searchResult.result
@@ -57,6 +66,15 @@ $("#searchBtn").click(function () {
 
 
 
+// jQuery for newCookieButton
+
+$("#newCookieBtn").click(function () {
+    $("#fortuneBox").hide();
+    $("#newBtnContainer").hide();
+    $("#cookieBox").show();
+    $("#searchContainer").show();
+
+});
 // function to render the data
 function renderGiphyData(data) {
     let giphyContainer = $("#giphyCont")
@@ -79,7 +97,7 @@ function renderGiphyData(data) {
 
 function getGiphyData(inputMood) {
     return new Promise((resolve, reject) => {
-        fetch("https://api.giphy.com/v1/gifs/search?q=" + inputMood + "&api_key=m1Xfg0VXns59b9T57eo1ghhh0KJYrA1c&limit=1&rating=pg-13&lang=en")
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${inputMood}&api_key=m1Xfg0VXns59b9T57eo1ghhh0KJYrA1c&limit=1&rating=pg-13&lang=en`)
             .then(function (response) {
                 return response.json();
             })
@@ -124,3 +142,4 @@ function storeMoodResult(input) {
     results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
 }
+
