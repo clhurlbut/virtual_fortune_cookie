@@ -10,7 +10,11 @@ h1 {
   font-weight: bolder;
 }
 
-.cookieBox {
+#cookieBoxLeft {
+  padding: 0;
+}
+
+#cookieBoxRight {
   padding: 0;
 }
 
