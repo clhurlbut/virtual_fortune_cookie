@@ -17,13 +17,35 @@ $("#searchBtn").click(function() {
         storeMoodResult(searchResult.input);
         renderGiphyData(searchResult.result);
     })
-    
-    // fetch results from quotes based on terms
-    
 
-
+    
+    //fetch results from quotes based on terms
+    getquoteData(searchResult.input)
+    .then(quoteData => {
+        searchResult.result = quoteData
+        storeMoodResult(searchResult.input);
+        renderQuoteData(searchResult.result);
+    })
 }
 );
+
+//     const handleevent = (response) => {
+//         console.log(response) //my quote
+//     }
+    
+//     fetch("https://quotes.rest/qod/categories?language=en&detailed=true")
+//     .then (response => response.json())
+//     .then(data => handleevent(data.contents.quotes[7]));
+// }
+// );
+
+
+function renderQuoteData(data) {
+    let quoteContainer = $("#quoteCont")
+    quoteContainer.html(`text`);
+}
+
+
 
 // function to render the data
 function renderGiphyData(data) {
@@ -54,10 +76,19 @@ function getGiphyData(inputMood){
         .then (result => resolve(result.data))
         .catch(err => reject(err))
     });
-    
-     
-    }
+}
 
+function getquoteData(inputMood){
+     return new Promise((resolve, reject) =>{
+         fetch("http://www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
+         .then(function(response) {
+             return response.json();
+         })
+         .then (result => resolve(result.data))
+         .catch(err => reject(err))
+
+    });
+}
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
