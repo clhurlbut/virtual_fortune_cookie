@@ -30,4 +30,11 @@ h1 {
   display: none;
 }
 
+#quoteCont {
+  color: #f50606;
+  padding: 80px;
+  font-family: 'Lucida Sans';
+  font-size: 180%;
+}
+
 /*  */
