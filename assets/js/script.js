@@ -2,6 +2,9 @@
 // Define Variables 
 
 var moodInput = $("#inputMood").val()
+var cookieAnimateRight = $("#cookieRight");
+var cookieAnimateLeft = $("#cookieLeft");
+
 let results = []
 
 
@@ -10,9 +13,9 @@ let results = []
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function () {
     // show and hide boxs
+    cookieAnimation();
     $("#fortuneBox").show();
     $("#newBtnContainer").show();
-    $("#cookieBox").hide();
     $("#searchContainer").hide();
     let searchResult = {}
     searchResult.input
@@ -64,6 +67,20 @@ $("#searchBtn").click(function () {
 //     quoteContainer.html(`text`);
 // }
 
+// Animation Functions
+function cookieAnimation() {
+    cookieAnimateLeft.addClass('animate_animated' + ' animate__rotateOutUpLeft');
+    window.setTimeout(function () {
+        cookieAnimateLeft.removeClass('animate_animated' + ' animate__rotateOutUpLeft');
+        $("#cookieBox").hide();
+    }, 2000);
+
+    cookieAnimateRight.addClass('animate_animated' + ' animate__rotateOutUpRight');
+    window.setTimeout(function () {
+        cookieAnimateRight.removeClass('animate_animated' + ' animate__rotateOutUpRight');
+        $("#cookieBox").hide();
+    }, 2000);
+};
 
 
 // jQuery for newCookieButton
