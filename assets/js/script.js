@@ -69,18 +69,24 @@ $("#searchBtn").click(function () {
 
 // Animation Functions
 function cookieAnimation() {
+
     cookieAnimateLeft.addClass('animate_animated' + ' animate__rotateOutUpLeft');
     window.setTimeout(function () {
         cookieAnimateLeft.removeClass('animate_animated' + ' animate__rotateOutUpLeft');
+
         $("#cookieBox").hide();
     }, 2000);
 
     cookieAnimateRight.addClass('animate_animated' + ' animate__rotateOutUpRight');
     window.setTimeout(function () {
         cookieAnimateRight.removeClass('animate_animated' + ' animate__rotateOutUpRight');
+
         $("#cookieBox").hide();
     }, 2000);
 };
+
+// $('#button_id').click(function(){
+// $('#element_want_to_target').addClass('.animation_class');});
 
 
 // jQuery for newCookieButton
