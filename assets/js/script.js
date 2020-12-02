@@ -2,6 +2,9 @@
 // Define Variables 
 
 var moodInput = $("#inputMood").val()
+var cookieAnimateRight = $("#cookieRight");
+var cookieAnimateLeft = $("#cookieLeft");
+
 let results = []
 
 
@@ -10,10 +13,7 @@ let results = []
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function () {
     // show and hide boxs
-    $("#fortuneBox").show();
-    $("#newBtnContainer").show();
-    $("#cookieBox").hide();
-    $("#searchContainer").hide();
+    cookieAnimation();
     let searchResult = {}
     searchResult.input
     searchResult.result
@@ -21,40 +21,40 @@ $("#searchBtn").click(function () {
     // fetch results from giphy based on term 
     getGiphyData(searchResult.input)
 
-    .then(giphyData => {
-        searchResult.result = giphyData
-        storeMoodResult(searchResult.input);
-        renderGiphyData(searchResult.result);
-    })
+        .then(giphyData => {
+            searchResult.result = giphyData
+            storeMoodResult(searchResult.input);
+            renderGiphyData(searchResult.result);
+        })
 
-    
-//    //fetch results from quotes based on terms
-//     getquoteData(searchResult.input)
-//     .then(quoteData => {
-//         searchResult.result = quoteData
-//         storeMoodResult(searchResult.input);
-//         renderQuoteData(searchResult.result);
-//     }) 
+
+    //    //fetch results from quotes based on terms
+    //     getquoteData(searchResult.input)
+    //     .then(quoteData => {
+    //         searchResult.result = quoteData
+    //         storeMoodResult(searchResult.input);
+    //         renderQuoteData(searchResult.result);
+    //     }) 
 }
 );
 
 //     const handleevent = (response) => {
 //         console.log(response) //my quote
 //     }
-    
+
 //     fetch("https://quotes.rest/qod/categories?language=en&detailed=true")
 //     .then (response => response.json())
 //     .then(data => handleevent(data.contents.quotes[7]));
 // }
 // );
 
-        // then(giphyData => {
-        //     searchResult.result = giphyData
-        //     storeMoodResult(searchResult.input);
-        //     renderGiphyData(searchResult.result);
-        // })
+// then(giphyData => {
+//     searchResult.result = giphyData
+//     storeMoodResult(searchResult.input);
+//     renderGiphyData(searchResult.result);
+// })
 
-    // fetch results from quotes based on terms
+// fetch results from quotes based on terms
 
 
 
@@ -64,6 +64,31 @@ $("#searchBtn").click(function () {
 //     quoteContainer.html(`text`);
 // }
 
+// Animation Functions
+function cookieAnimation() {
+    cookieAnimateLeft.addClass('animate__animated animate__rotateOutUpLeft');
+    window.setTimeout(function () {
+        cookieAnimateLeft.removeClass('animate__animated animate__rotateOutUpLeft');
+
+        $("#cookieBox").hide();
+        $("#fortuneBox").show();
+        $("#newBtnContainer").show();
+        $("#searchContainer").hide();
+    }, 2000);
+
+    cookieAnimateRight.addClass('animate__animated animate__rotateOutUpRight');
+    window.setTimeout(function () {
+        cookieAnimateRight.removeClass('animate__animated animate__rotateOutUpRight');
+
+        $("#cookieBox").hide();
+        $("#fortuneBox").show();
+        $("#newBtnContainer").show();
+        $("#searchContainer").hide();
+    }, 2000);
+};
+
+// $('#button_id').click(function(){
+// $('#element_want_to_target').addClass('.animation_class');});
 
 
 // jQuery for newCookieButton
@@ -80,7 +105,7 @@ function renderGiphyData(data) {
     let giphyContainer = $("#giphyCont")
     giphyContainer.html(
         `
-      <img src="${data[0].images.fixed_height.url}"/>
+      <img class="center-align responsive-img" src="${data[0].images.fixed_height.url}"/>
       `
     );
 
@@ -130,16 +155,15 @@ function renderQuoteData(data) {
 }
 
 fetch("https://type.fit/api/quotes")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    renderQuoteData(data)
-    // console.log(data)
-  })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        renderQuoteData(data)
+        // console.log(data)
+    })
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
 }
-
