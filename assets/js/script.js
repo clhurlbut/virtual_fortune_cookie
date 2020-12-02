@@ -87,10 +87,6 @@ function cookieAnimation() {
     }, 2000);
 };
 
-// $('#button_id').click(function(){
-// $('#element_want_to_target').addClass('.animation_class');});
-
-
 // jQuery for newCookieButton
 
 $("#newCookieBtn").click(function () {
@@ -108,13 +104,6 @@ function renderGiphyData(data) {
       <img class="center-align responsive-img" src="${data[0].images.fixed_height.url}"/>
       `
     );
-
-    // string interpelation above
-    // giphyContainer.innerHTML = ""
-    // var gifImg = document.createElement('img');
-    // gifImg.setAttribute('src', data[0].images.fixed_height.url);
-
-    // giphyContainer.appendChild(gifImg);
 
 }
 
@@ -135,17 +124,6 @@ function getGiphyData(inputMood) {
 
 }
 
-// function getquoteData(inputMood){
-//      return new Promise((resolve, reject) =>{
-//          fetch("www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
-//          .then(function(response) {
-//              return response.json();
-//          })
-//          .then (result => resolve(result.data))
-//          .catch(err => reject(err))
-
-//     });
-// }
 function renderQuoteData(data) {
     var randomQuote = data[Math.floor(Math.random() * data.length)]
     let quoteContainer = $("#quoteCont")
