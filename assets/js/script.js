@@ -2,7 +2,7 @@
 // Define Variables 
 
 var moodInput = $("#inputMood").val()
-let results = []
+let results = JSON.parse(localStorage.getItem("mood")) || []
 
 
 
@@ -139,7 +139,20 @@ fetch("https://type.fit/api/quotes")
   })
 // function to store the results 
 function storeMoodResult(input) {
+   if (results.length === 4) {
+       results.unshift()
+   }
     results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
+    renderMoodStorage()
+
 }
 
+// function for refresh/loaded get mood from local storage
+function renderMoodStorage() {
+    for (let i = 0; i < results.length; i++) {
+        var quoteStorage = $("<p>").text(results[i])
+        $(`#${i}`).append(quoteStorage)
+
+    }
+}
