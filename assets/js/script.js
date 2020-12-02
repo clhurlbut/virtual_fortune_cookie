@@ -101,6 +101,7 @@ $("#newCookieBtn").click(function () {
     $("#newBtnContainer").hide();
     $("#cookieBox").show();
     $("#searchContainer").show();
+    clearInput();
 
 });
 // function to render the data
@@ -137,6 +138,10 @@ function renderQuoteData(data) {
     quoteContainer.html(randomQuote.text);
     // renderQuoteData(Math.floor(Math.random() * 10))
     console.log(randomQuote)
+}
+
+function clearInput() {
+    document.getElementById("inputMood").value = "";
 }
 
 // function to store the results 
