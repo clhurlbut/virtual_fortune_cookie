@@ -137,7 +137,7 @@ function renderQuoteData(data) {
     let quoteContainer = $("#quoteCont")
     quoteContainer.html(randomQuote.text);
     // renderQuoteData(Math.floor(Math.random() * 10))
-    console.log(randomQuote)
+    //console.log(randomQuote)
 }
 
 function clearInput() {
