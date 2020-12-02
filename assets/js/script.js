@@ -4,9 +4,6 @@
 var moodInput = $("#inputMood").val()
 let results = []
 
-
-
-
 // Get the input from the user and save it to local storage 
 $("#searchBtn").click(function () {
     // show and hide boxs
