@@ -28,41 +28,19 @@ $("#searchBtn").click(function () {
         })
 
 
-    //    //fetch results from quotes based on terms
-    //     getquoteData(searchResult.input)
-    //     .then(quoteData => {
-    //         searchResult.result = quoteData
-    //         storeMoodResult(searchResult.input);
-    //         renderQuoteData(searchResult.result);
-    //     }) 
-}
-);
 
-//     const handleevent = (response) => {
-//         console.log(response) //my quote
-//     }
+    //fetch results from quotes based on terms
+    // var randomQuote = data[Math.floor(Math.random() * data.length)]
+    //getquoteData(randomQuote);
 
-//     fetch("https://quotes.rest/qod/categories?language=en&detailed=true")
-//     .then (response => response.json())
-//     .then(data => handleevent(data.contents.quotes[7]));
-// }
-// );
-
-// then(giphyData => {
-//     searchResult.result = giphyData
-//     storeMoodResult(searchResult.input);
-//     renderGiphyData(searchResult.result);
-// })
-
-// fetch results from quotes based on terms
+    //storeMoodResult(searchResult.input);
+    //renderQuoteData(randomQuote);
+});
 
 
 
 
-// function renderQuoteData(data) {
-//     let quoteContainer = $("#quoteCont")
-//     quoteContainer.html(`text`);
-// }
+
 
 // Animation Functions
 function cookieAnimation() {
@@ -87,8 +65,7 @@ function cookieAnimation() {
     }, 2000);
 };
 
-// $('#button_id').click(function(){
-// $('#element_want_to_target').addClass('.animation_class');});
+
 
 
 // jQuery for newCookieButton
@@ -109,12 +86,7 @@ function renderGiphyData(data) {
       `
     );
 
-    // string interpelation above
-    // giphyContainer.innerHTML = ""
-    // var gifImg = document.createElement('img');
-    // gifImg.setAttribute('src', data[0].images.fixed_height.url);
 
-    // giphyContainer.appendChild(gifImg);
 
 }
 
@@ -135,33 +107,25 @@ function getGiphyData(inputMood) {
 
 }
 
-// function getquoteData(inputMood){
-//      return new Promise((resolve, reject) =>{
-//          fetch("www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
-//          .then(function(response) {
-//              return response.json();
-//          })
-//          .then (result => resolve(result.data))
-//          .catch(err => reject(err))
 
-//     });
-// }
 function renderQuoteData(data) {
     var randomQuote = data[Math.floor(Math.random() * data.length)]
     let quoteContainer = $("#quoteCont")
     quoteContainer.html(randomQuote.text);
     // renderQuoteData(Math.floor(Math.random() * 10))
-    console.log(randomQuote)
 }
+
+
 
 fetch("https://type.fit/api/quotes")
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        renderQuoteData(data)
+        renderQuoteData(data);
         // console.log(data)
-    })
+    });
+
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
