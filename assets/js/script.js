@@ -27,7 +27,14 @@ $("#searchBtn").click(function () {
             renderGiphyData(searchResult.result);
         })
 
-
+    fetch("https://type.fit/api/quotes")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            renderQuoteData(data)
+            // console.log(data)
+        })
     //    //fetch results from quotes based on terms
     //     getquoteData(searchResult.input)
     //     .then(quoteData => {
@@ -132,14 +139,6 @@ function renderQuoteData(data) {
     console.log(randomQuote)
 }
 
-fetch("https://type.fit/api/quotes")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        renderQuoteData(data)
-        // console.log(data)
-    })
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
