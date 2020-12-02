@@ -74,7 +74,7 @@ function renderGiphyData(data) {
     let giphyContainer = $("#giphyCont")
     giphyContainer.html(
         `
-      <img class="center-align" src="${data[0].images.fixed_height.url}"/>
+      <img class="responsive-img" src="${data[0].images.fixed_height.url}"/>
       `
     );
 
