@@ -14,9 +14,6 @@ let results = []
 $("#searchBtn").click(function () {
     // show and hide boxs
     cookieAnimation();
-    $("#fortuneBox").show();
-    $("#newBtnContainer").show();
-    $("#searchContainer").hide();
     let searchResult = {}
     searchResult.input
     searchResult.result
@@ -74,6 +71,9 @@ function cookieAnimation() {
         cookieAnimateLeft.removeClass('animate__animated animate__rotateOutUpLeft');
 
         $("#cookieBox").hide();
+        $("#fortuneBox").show();
+        $("#newBtnContainer").show();
+        $("#searchContainer").hide();
     }, 2000);
 
     cookieAnimateRight.addClass('animate__animated animate__rotateOutUpRight');
@@ -81,6 +81,9 @@ function cookieAnimation() {
         cookieAnimateRight.removeClass('animate__animated animate__rotateOutUpRight');
 
         $("#cookieBox").hide();
+        $("#fortuneBox").show();
+        $("#newBtnContainer").show();
+        $("#searchContainer").hide();
     }, 2000);
 };
 
