@@ -69,17 +69,16 @@ $("#searchBtn").click(function () {
 
 // Animation Functions
 function cookieAnimation() {
-
-    cookieAnimateLeft.addClass('animate_animated' + ' animate__rotateOutUpLeft');
+    cookieAnimateLeft.addClass('animate__animated animate__rotateOutUpLeft');
     window.setTimeout(function () {
-        cookieAnimateLeft.removeClass('animate_animated' + ' animate__rotateOutUpLeft');
+        cookieAnimateLeft.removeClass('animate__animated animate__rotateOutUpLeft');
 
         $("#cookieBox").hide();
     }, 2000);
 
-    cookieAnimateRight.addClass('animate_animated' + ' animate__rotateOutUpRight');
+    cookieAnimateRight.addClass('animate__animated animate__rotateOutUpRight');
     window.setTimeout(function () {
-        cookieAnimateRight.removeClass('animate_animated' + ' animate__rotateOutUpRight');
+        cookieAnimateRight.removeClass('animate__animated animate__rotateOutUpRight');
 
         $("#cookieBox").hide();
     }, 2000);
