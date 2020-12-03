@@ -19,7 +19,7 @@ h1 {
 }
 
 #btnContainer {
-  padding: 10px 10px;
+  padding: 0px 15px 14px 15px;
 }
 
 #fortuneBox {
@@ -28,17 +28,22 @@ h1 {
 
 #newBtnContainer {
   display: none;
+  padding: 0px 15px 15px 15px;
 }
 
 #quoteCont {
   color: #f50606;
-  padding: 80px;
-  font-family: 'Lucida Sans';
-  font-size: 180%;
+  padding: 20px;
+  align-content: center;
+  text-align: center;
+  font-family: 'Georgia';
+  font-variant: small-caps;
 }
 
 #giphyCont {
-  padding: 80px;
+  padding: 20px;
+  align-content: center;
+  align-content: center;
 }
 
 /*  */

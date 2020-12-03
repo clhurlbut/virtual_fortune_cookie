@@ -27,7 +27,14 @@ $("#searchBtn").click(function () {
             renderGiphyData(searchResult.result);
         })
 
-
+    fetch("https://type.fit/api/quotes")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            renderQuoteData(data)
+            // console.log(data)
+        })
     //    //fetch results from quotes based on terms
     //     getquoteData(searchResult.input)
     //     .then(quoteData => {
@@ -87,10 +94,6 @@ function cookieAnimation() {
     }, 2000);
 };
 
-// $('#button_id').click(function(){
-// $('#element_want_to_target').addClass('.animation_class');});
-
-
 // jQuery for newCookieButton
 
 $("#newCookieBtn").click(function () {
@@ -98,6 +101,7 @@ $("#newCookieBtn").click(function () {
     $("#newBtnContainer").hide();
     $("#cookieBox").show();
     $("#searchContainer").show();
+    clearInput();
 
 });
 // function to render the data
@@ -108,13 +112,6 @@ function renderGiphyData(data) {
       <img class="center-align responsive-img" src="${data[0].images.fixed_height.url}"/>
       `
     );
-
-    // string interpelation above
-    // giphyContainer.innerHTML = ""
-    // var gifImg = document.createElement('img');
-    // gifImg.setAttribute('src', data[0].images.fixed_height.url);
-
-    // giphyContainer.appendChild(gifImg);
 
 }
 
@@ -135,33 +132,18 @@ function getGiphyData(inputMood) {
 
 }
 
-// function getquoteData(inputMood){
-//      return new Promise((resolve, reject) =>{
-//          fetch("www.famous-quotes.uk/api.php?sortby=" + inputMood + "newest&tags_and&maxlength10=mood")
-//          .then(function(response) {
-//              return response.json();
-//          })
-//          .then (result => resolve(result.data))
-//          .catch(err => reject(err))
-
-//     });
-// }
 function renderQuoteData(data) {
     var randomQuote = data[Math.floor(Math.random() * data.length)]
     let quoteContainer = $("#quoteCont")
     quoteContainer.html(randomQuote.text);
     // renderQuoteData(Math.floor(Math.random() * 10))
-    console.log(randomQuote)
+    //console.log(randomQuote)
 }
 
-fetch("https://type.fit/api/quotes")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        renderQuoteData(data)
-        // console.log(data)
-    })
+function clearInput() {
+    document.getElementById("inputMood").value = "";
+}
+
 // function to store the results 
 function storeMoodResult(input) {
     results.push(input)
