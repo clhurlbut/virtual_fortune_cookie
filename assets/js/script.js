@@ -149,3 +149,6 @@ function storeMoodResult(input) {
     results.push(input)
     localStorage.setItem("mood", JSON.stringify(results))
 }
+
+// We need to dynamically make the previous fortune cookies a button that runs the function to get the fortune 
+// with that specific search term 
