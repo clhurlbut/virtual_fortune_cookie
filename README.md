@@ -22,6 +22,10 @@ A web app combining free public APIs to give the user a virtual fortune cookie e
 * Animate.css
 * Google Icons
 
+## Screenshots
+![Screenshot of Deployed Gitpage](./assets/imgs/screenshot cookie 2)
+![Screenshot of Deployed Gitpage](./assets/imgs/screenshot cookie 1)
+
 ## Website
 
 GitPages Deployed URL : https://clhurlbut.github.io/virtual_fortune_cookie/
